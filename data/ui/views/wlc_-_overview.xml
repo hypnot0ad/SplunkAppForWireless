@@ -1,0 +1,218 @@
+<view autoCancelInterval="90" isVisible="true" objectMode="SimpleDashboard" onunloadCancelJobs="true" refresh="-1" template="dashboard.html">
+  <label>WLC - Overview</label>
+  <module name="AccountBar" layoutPanel="appHeader"/>
+  <module name="AppBar" layoutPanel="navigationHeader"/>
+  <module name="Message" layoutPanel="messaging">
+    <param name="filter">*</param>
+    <param name="clearOnJobDispatch">False</param>
+    <param name="maxSize">1</param>
+  </module>
+  <module name="DashboardTitleBar" layoutPanel="viewHeader"/>
+  <module name="Message" layoutPanel="navigationHeader">
+    <param name="filter">splunk.search.job</param>
+    <param name="clearOnJobDispatch">True</param>
+    <param name="maxSize">1</param>
+    <param name="level">warn</param>
+  </module>
+  <module name="HiddenSavedSearch" layoutPanel="panel_row1_col1" group="Top Status Codes over Time" autoRun="True">
+    <param name="savedSearch">WLC - Top Status Code over Time</param>
+    <param name="groupLabel">Top Status Codes over Time</param>
+    <module name="ViewstateAdapter">
+      <param name="suppressionList">
+        <item>charting.chart.stackMode</item>
+        <item>charting.secondaryAxis.minimumNumber</item>
+        <item>charting.chart</item>
+        <item>charting.secondaryAxisTitle.text</item>
+        <item>charting.legend.placement</item>
+        <item>charting.primaryAxisTitle.text</item>
+        <item>charting.chart.nullValueMode</item>
+        <item>charting.chart.showMarkers</item>
+        <item>charting.secondaryAxis.maximumNumber</item>
+        <item>charting.secondaryAxis.scale</item>
+        <item>charting.layout.splitSeries</item>
+      </param>
+      <param name="savedSearch">WLC - Top Status Code over Time</param>
+      <module name="HiddenFieldPicker">
+        <param name="strictMode">True</param>
+        <module name="JobProgressIndicator">
+          <module name="EnablePreview">
+            <param name="enable">True</param>
+            <param name="display">False</param>
+            <module name="HiddenChartFormatter">
+              <param name="charting.chart.stackMode">default</param>
+              <param name="charting.secondaryAxis.minimumNumber">""</param>
+              <param name="charting.chart">area</param>
+              <param name="charting.secondaryAxisTitle.text">count of events</param>
+              <param name="charting.legend.placement">right</param>
+              <param name="charting.primaryAxisTitle.text">time</param>
+              <param name="charting.chart.nullValueMode">gaps</param>
+              <param name="charting.chart.showMarkers">false</param>
+              <param name="charting.secondaryAxis.maximumNumber">""</param>
+              <param name="charting.secondaryAxis.scale">""</param>
+              <param name="charting.layout.splitSeries">false</param>
+              <module name="JSChart">
+                <param name="width">100%</param>
+                <module name="Gimp"/>
+                <module name="ConvertToDrilldownSearch">
+                  <module name="ViewRedirector">
+                    <param name="viewTarget">flashtimeline</param>
+                  </module>
+                </module>
+              </module>
+              <module name="ViewRedirectorLink">
+                <param name="viewTarget">flashtimeline</param>
+              </module>
+            </module>
+          </module>
+        </module>
+      </module>
+    </module>
+  </module>
+  <module name="HiddenSavedSearch" layoutPanel="panel_row2_col1" group="Number of Errors or Invalid Messages" autoRun="True">
+    <param name="savedSearch">WLC - Number of Errors or Invalid Messages</param>
+    <param name="groupLabel">Number of Errors or Invalid Messages</param>
+    <module name="ViewstateAdapter">
+      <param name="suppressionList"/>
+      <param name="savedSearch">WLC - Number of Errors or Invalid Messages</param>
+      <module name="HiddenFieldPicker">
+        <param name="strictMode">True</param>
+        <module name="JobProgressIndicator">
+          <module name="EnablePreview">
+            <param name="enable">True</param>
+            <param name="display">False</param>
+            <module name="HiddenChartFormatter">
+              <module name="JSChart">
+                <param name="width">100%</param>
+                <module name="Gimp"/>
+                <module name="ConvertToDrilldownSearch">
+                  <module name="ViewRedirector">
+                    <param name="viewTarget">flashtimeline</param>
+                  </module>
+                </module>
+              </module>
+              <module name="ViewRedirectorLink">
+                <param name="viewTarget">flashtimeline</param>
+              </module>
+            </module>
+          </module>
+        </module>
+      </module>
+    </module>
+  </module>
+  <module name="HiddenSavedSearch" layoutPanel="panel_row3_col1" group="Top Status Codes" autoRun="True">
+    <param name="savedSearch">WLC - Top Status Codes</param>
+    <param name="groupLabel">Top Status Codes</param>
+    <module name="ViewstateAdapter">
+      <param name="suppressionList"/>
+      <param name="savedSearch">WLC - Top Status Codes</param>
+      <module name="HiddenFieldPicker">
+        <param name="strictMode">True</param>
+        <module name="JobProgressIndicator">
+          <module name="EnablePreview">
+            <param name="enable">True</param>
+            <param name="display">False</param>
+            <module name="HiddenChartFormatter">
+              <module name="JSChart">
+                <param name="width">100%</param>
+                <module name="Gimp"/>
+                <module name="ConvertToDrilldownSearch">
+                  <module name="ViewRedirector">
+                    <param name="viewTarget">flashtimeline</param>
+                  </module>
+                </module>
+              </module>
+              <module name="ViewRedirectorLink">
+                <param name="viewTarget">flashtimeline</param>
+              </module>
+            </module>
+          </module>
+        </module>
+      </module>
+    </module>
+  </module>
+  <module name="HiddenSavedSearch" layoutPanel="panel_row4_col1" group="Top Clients Having MAX EAP Retransmissions" autoRun="True">
+    <param name="savedSearch">WLC - Top Clients Having MAX EAP Retransmissions</param>
+    <param name="groupLabel">Top Clients Having MAX EAP Retransmissions</param>
+    <module name="ViewstateAdapter">
+      <param name="suppressionList"/>
+      <param name="savedSearch">WLC - Top Clients Having MAX EAP Retransmissions</param>
+      <module name="HiddenFieldPicker">
+        <param name="strictMode">True</param>
+        <module name="JobProgressIndicator">
+          <module name="EnablePreview">
+            <param name="enable">True</param>
+            <param name="display">False</param>
+            <module name="HiddenChartFormatter">
+              <module name="JSChart">
+                <param name="width">100%</param>
+                <module name="Gimp"/>
+                <module name="ConvertToDrilldownSearch">
+                  <module name="ViewRedirector">
+                    <param name="viewTarget">flashtimeline</param>
+                  </module>
+                </module>
+              </module>
+              <module name="ViewRedirectorLink">
+                <param name="viewTarget">flashtimeline</param>
+              </module>
+            </module>
+          </module>
+        </module>
+      </module>
+    </module>
+  </module>
+  <module name="HiddenSavedSearch" layoutPanel="panel_row5_col1" group="Top Status Message" autoRun="True">
+    <param name="savedSearch">WLC - Top Status Message</param>
+    <param name="groupLabel">Top Status Message</param>
+    <module name="ViewstateAdapter">
+      <param name="suppressionList"/>
+      <param name="savedSearch">WLC - Top Status Message</param>
+      <module name="HiddenFieldPicker">
+        <param name="strictMode">True</param>
+        <module name="JobProgressIndicator"/>
+        <module name="Paginator">
+          <param name="count">10</param>
+          <param name="entityName">results</param>
+          <module name="EnablePreview">
+            <param name="enable">True</param>
+            <param name="display">False</param>
+            <module name="SimpleResultsTable">
+              <param name="drilldown">row</param>
+              <param name="entityName">results</param>
+              <param name="allowTransformedFieldSelect">True</param>
+              <module name="Gimp"/>
+              <module name="ConvertToDrilldownSearch">
+                <module name="ViewRedirector">
+                  <param name="viewTarget">flashtimeline</param>
+                </module>
+              </module>
+            </module>
+            <module name="ViewRedirectorLink">
+              <param name="viewTarget">flashtimeline</param>
+            </module>
+          </module>
+        </module>
+      </module>
+    </module>
+  </module>
+  <module name="HiddenSavedSearch" layoutPanel="panel_row6_col1" group="Last 10 Events" autoRun="True">
+    <param name="savedSearch">WLC - Last 10 Events</param>
+    <param name="groupLabel">Last 10 Events</param>
+    <module name="ViewstateAdapter">
+      <param name="suppressionList"/>
+      <param name="savedSearch">WLC - Last 10 Events</param>
+      <module name="HiddenFieldPicker">
+        <param name="strictMode">True</param>
+        <module name="JobProgressIndicator"/>
+        <module name="Paginator">
+          <param name="count">10</param>
+          <param name="entityName">results</param>
+          <module name="EventsViewer">
+            <module name="Gimp"/>
+          </module>
+        </module>
+      </module>
+    </module>
+  </module>
+</view>
+
